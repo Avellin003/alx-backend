@@ -4,6 +4,9 @@ from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    start_index = (page - 1) * page_size
-    end_index = start_index + page_size - 1
-    return start_index, end_index
+    begin, end = 0, 0
+    for i in range(page):
+        begin = end
+        end += page_size
+
+    return (begin, end)
