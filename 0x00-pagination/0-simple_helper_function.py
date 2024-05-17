@@ -4,6 +4,7 @@ from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """discovers the pange range"""
     begin, end = 0, 0
     for i in range(page):
         begin = end
