@@ -23,12 +23,13 @@ class LIFOCache(BaseCaching):
             # Gets the total length of Cache
             # Checks if the new key is in cache and If cache storage is full
             if length >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                print("DISCARD: {}".format(self.order[BaseCaching.MAX_ITEMS - 1]))
+                discard_key = BaseCaching.MAX_ITEMS - 1
+                print("DISCARD: {}".format(self.order[discard_key]))
                 # Prints the deleted cache
                 # Deletes the last in key which has location 0 in order
-                del self.cache_data[self.order[BaseCaching.MAX_ITEMS - 1]]
+                del self.cache_data[self.order[discard_key]]
                 # Deletes the item related to the last in key
-                del self.order[BaseCaching.MAX_ITEMS - 1]
+                del self.order[discard_key]
             self.order.append(key)
             # Appends the new key in the order list
             self.cache_data[key] = item
