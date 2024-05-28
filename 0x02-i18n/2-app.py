@@ -33,7 +33,7 @@ def get_locale():
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
-    """index"""
+    """defining the index route"""
     return render_template('2-index.html')
 
 
