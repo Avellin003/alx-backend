@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""task 2"""
+"""module to define the app with Babel support"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
