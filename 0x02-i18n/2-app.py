@@ -21,7 +21,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
     a function that determines the best match with our
     supported languages and returns the best one
