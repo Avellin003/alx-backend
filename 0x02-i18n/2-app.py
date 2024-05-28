@@ -33,6 +33,8 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def index():
     """
+
+    
     A function that determines the best match with our
     supported languages and renders a template
     """
