@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""flask babel task2"""
+"""
+flask babel task2
+"""
 from flask import (
     Flask,
     render_template,
@@ -9,7 +11,9 @@ from flask_babel import Babel
 
 
 class Config(object):
-    """Config class"""
+    """
+    a class Configures the languages to use
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -25,13 +29,16 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    """get locale from user request"""
+    """
+    a function that determines the best
+    match with our supported languages.
+    """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
-    """function that renders a template"""
+    """a function that renders a template"""
     return render_template('2-index.html')
 
 
