@@ -1,35 +1,39 @@
 #!/usr/bin/env python3
-"""task 2"""
+"""module to define the app with Babel supportg"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
+# Create a Config class
 class Config(object):
-    """class that configures the languages"""
+    """Define available languages"""
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-# create an instance of the Flask class
+# Instantiate the Babel object
 app = Flask(__name__)
-# set the configuration of the app
+# Use Config as config for your Flask app
 app.config.from_object(Config)
-# create an instance of the Babel class
+# Instantiate the Babel object
 babel = Babel(app)
 
 
 @babel.localeselector
 def get_locale():
-    """a function that gets the prefered language"""
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    """
+    a function that determines the best match with our supported languages.
+    """
+    user_language = request.accept_languages.best_match(['en', 'fr'])
+    return user_language
 
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
-    """definition of the index route"""
+    """defining the index route"""
     return render_template('2-index.html')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(port="5000", host="0.0.0.0", debug=True)
