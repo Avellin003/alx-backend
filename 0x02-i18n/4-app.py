@@ -21,14 +21,18 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    # Determine the user's preferred language/locale based on the request context
-    # For example, you might check the Accept-Language header or user preferences
-    user_language = request.accept_languages.best_match(['en', 'fr'])
+    # Check if the request has a 'locale' argument
+    locale = request.args.get('locale')
+    if locale in app.config['LANGUAGES']:
+        return locale
+
+    # If not, resort to the previous default behavior
+    user_language = request.accept_languages.best_match(app.config['LANGUAGES'])
     return user_language
 
 @app.route('/')
 def index():
-    return render_template('2-index.html')
+    return render_template('4-index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port="5000", host="0.0.0.0", debug=True)
