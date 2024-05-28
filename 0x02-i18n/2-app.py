@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-flask for babel and i18n
+this is a module that creates a flask app and also a babel object
 """
 from flask import Flask, render_template, request
 from flask_babel import Babel
@@ -35,8 +35,7 @@ def index() -> str:
     """
 
 
-    A function that determines the best match with our
-    supported languages and renders a template
+    a definition that renders a template
     """
     return render_template('2-index.html')
 
