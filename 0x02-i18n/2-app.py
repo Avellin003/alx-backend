@@ -14,10 +14,8 @@ class Config(object):
 
 # Instantiate the Babel object
 app = Flask(__name__)
-
 # Use Config as config for your Flask app
 app.config.from_object(Config)
-
 # Instantiate the Babel object
 babel = Babel(app)
 
