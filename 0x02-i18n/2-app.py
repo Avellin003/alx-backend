@@ -33,12 +33,11 @@ def get_locale() -> str:
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """
-
-
-    a definition that renders a template
+    this funciton is in charge
+    of rendering the index page and also the
     """
     return render_template('2-index.html')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(port="5000", host="0.0.0.0", debug=True)
