@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""task 1"""
 from flask import Flask, render_template
 from flask_babel import Babel
 
@@ -25,6 +26,7 @@ app.config.from_object(Config)
 # Initialize the Babel object with the Flask app
 @app.route('/')
 def index():
+    """index"""
     return render_template('1-index.html')
 
 
