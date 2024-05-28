@@ -11,7 +11,7 @@ babel = Babel(app)
 
 # Create a Config class
 class Config:
-    # Define available languages
+    """Define available languages"""
     LANGUAGES = ["en", "fr"]
 
     # Set Babel's default locale and timezone
@@ -25,7 +25,7 @@ app.config.from_object(Config)
 
 # Initialize the Babel object with the Flask app
 @app.route('/')
-def index():
+def index() -> str:
     """index"""
     return render_template('1-index.html')
 
