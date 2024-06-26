@@ -12,11 +12,11 @@ function redisConnect() {
 };
 
 function setNewSchool(schoolName, value) {
-  client.set(schoolName, value, print);
+  con.set(schoolName, value, print);
 };
 
 function displaySchoolValue(schoolName) {
-  client.get(schoolName, function(error, result) {
+  con.get(schoolName, function(error, result) {
     if (error) {
       console.log(error);
       throw error;
